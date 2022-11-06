@@ -1,0 +1,20 @@
+DROP SCHEMA IF EXISTS public CASCADE;
+CREATE SCHEMA public;
+
+CREATE TABLE public.users (
+	id  BIGSERIAL PRIMARY KEY,
+	email       VARCHAR(200) NOT NULL,
+	first_name  VARCHAR(200) NOT NULL,
+	last_name   VARCHAR(200) NOT NULL,
+	username    VARCHAR(50) UNIQUE NOT NULL,
+	UNIQUE (username)
+);
+
+CREATE TABLE public.posts (
+	id  BIGSERIAL PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  icon VARCHAR(50) NOT NULL,
+  content TEXT NOT NULL,
+  media VARCHAR(300),
+  created_at TIMESTAMP DEFAULT NOW()
+);
